@@ -1,0 +1,4 @@
+1. Fazer com que, ao terminar a partida (win/loss) o modal de que o oponente saiu não apareça (não tem necessidade).
+ou talvez fazer com que, ao final do game, quando o oponente sair n te tire da match.
+
+2. Remover o botão de public/privado depois que a match começar.

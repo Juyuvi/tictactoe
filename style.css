@@ -1,0 +1,315 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #0081C9 !important;
+}
+
+
+.panel{
+    display: initial;
+    margin: 5% 20%;
+    flex: 1;
+    text-align: center;
+    background: #5BC0F8;
+    border-radius: 20px;
+    padding: 0 5%;
+
+}
+
+.title{
+    font-family: 'Roboto', sans-serif;
+    padding: 40px;
+    text-transform: uppercase;
+    color: white;
+    /*-webkit-text-stroke: 1px black;*/
+    
+
+}
+
+.panel-control{
+    margin-top: 50px;
+    display: flex;
+
+
+}
+
+.games{
+    background-color: #52a0ca;
+    width: 300px;
+    height: 500px;
+    max-height: 500px;
+    padding-top: 10px;
+    overflow-y: auto; 
+}
+
+.games > h5{
+    font-weight: 700;
+    color: white
+}
+
+.jogo{
+    padding: 0;
+}
+
+ul.jogo > li{
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.171);
+    list-style: none;
+    margin-bottom: 5px;
+    transition: ease-in-out .1s;
+}
+
+
+ul.jogo > li:hover{
+    color: yellow;
+    font-size: 1.3em;
+}
+
+ul.jogo:last-child{
+    margin-bottom: 0;
+}
+
+
+
+.criarJogo{
+    margin-bottom: 100px;
+}
+
+.idInput{ 
+    text-transform: uppercase;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    text-transform: none;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    text-transform: none;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    text-transform: none;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    text-transform: none;
+}
+::placeholder { /* Recent browsers */
+    text-transform: none;
+}
+
+
+
+
+
+
+
+/* Game Style Sheet */
+
+.gamePanel{
+    display: none;
+    margin: 5% 20%;
+    flex: 1;
+    text-align: center;
+    background: #5BC0F8;
+    border-radius: 20px;
+    padding: 0 5%;
+
+}
+
+.gameCanvas{
+    margin: 0 auto;
+    margin-top: 30px;
+    height: 450px;
+    width: 450px;
+    background-color: white;
+}
+
+.container > .row{
+    display: flex;
+}
+
+.gamePosition{
+    padding: 0 !important;
+
+    height: 150px;
+}
+
+.gameSquaresO .gamePosition:not(.X, .bolinha):hover::before{
+    content: "O";
+    font-size: 155px;
+    line-height: 150px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(209, 206, 25);
+    opacity: .4;
+}
+
+.gameSquaresX .gamePosition:not(.X, .bolinha):hover::before{
+    content: "X";
+    font-size: 155px;
+    line-height: 150px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(104, 139, 34);
+    opacity: .4;
+}
+
+.gamePosition:not(.bolinha, .X){
+    cursor: pointer;
+}
+
+
+
+.X::before{
+    content: "X";
+    font-size: 150px;
+    line-height: 155px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(104, 139, 34);
+}
+
+.X::before:hover{
+    content: "X";
+    font-size: 150px;
+    line-height: 155px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(104, 139, 34);
+}
+
+.bolinha::before{
+    content: "O";
+    font-size: 155px;
+    line-height: 150px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(209, 206, 25);
+}
+
+.line::before{
+    position: fixed;
+    content: "-";
+    font-size: 150px;
+    line-height: 155px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(104, 139, 34);
+}
+
+#hLine{
+    position: absolute;
+    width: 410px;
+    margin-left: 20px;
+    height: 10px;
+    background-color:  #808080;
+    border-radius: 10px;
+    margin-top: -85px;
+    
+
+    animation-name: hLine;
+    animation-duration: .5s;
+}
+
+#vLine{
+    position: fixed;
+    height: 410px;
+    margin-top: -135px;
+    width: 10px;
+    background-color:  #808080;
+    border-radius: 10px;
+    padding: 0;
+    margin-left: 70px;
+
+    animation-name: vLine;
+    animation-duration: .5s;
+}
+
+#upDownLine{
+    position: fixed;
+    height: 530px;
+    margin-top: -135px;
+    width: 10px;
+    background-color:  #808080;
+    border-radius: 10px;
+    padding: 0;
+    margin-left: 70px;
+    transform: rotate(-45deg);
+    transform-origin: 5px 55px;
+
+    animation-name: diagonalLine;
+    animation-duration: .5s;
+}
+
+#downUpLine{
+    position: fixed;
+    height: 530px;
+    margin-top: -135px;
+    width: 10px;
+    background-color:  #808080;
+    border-radius: 10px;
+    padding: 0;
+    margin-left: 70px;
+    transform: rotate(225deg);
+    transform-origin: 5px 55px;
+
+    animation-name: diagonalLine;
+    animation-duration: .5s;
+}
+
+@keyframes diagonalLine {
+    from {height: 0;}
+    to {height: 530px;}
+  }
+
+@keyframes hLine {
+    from {width: 0;}
+    to {width: 410px;}
+}
+
+@keyframes vLine {
+    from {height: 0;}
+    to {height: 410px;}
+}
+
+
+/* Removed
+#hLineRow{
+    display: flex;
+    align-items: center;
+}
+
+#vLineRow{
+    display: flex;
+    
+    justify-content: center;
+}
+*/
+
+
+.codigo{
+    margin-top: 40px;
+}
+
+
+
+.codigo > *{
+    display: inline-flex;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.codigo > button{
+    margin-left: 10px;
+}
+
+
+
+.btnPublico::before{
+    content: "PÚBLICO";
+}
+
+.btnPrivado::before{
+    content: "PRIVADO";
+}
+
+

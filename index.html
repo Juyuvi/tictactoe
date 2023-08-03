@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Jogo da Velha Online</title>
+        <link rel="stylesheet" href="./style.css">
+        
+        <link rel="icon" href="./favicon.png" type="image/x-icon">
+        
+
+        <!--Bootstrap Imports-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+        <!-- Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto:ital,wght@0,900;1,400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    
+
+  
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <p id="modalText"></p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+            </div>
+        </div>    
+        <div class="panel" id="panel">
+            <div class="title">
+                <h1>
+                    jogo da velha online
+                </h1>
+            </div>
+
+            <div class="panel-control">
+                <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="games rounded">
+                            <h5>JOGOS DISPONÍVEIS</h1>
+                                <ul class="jogo user-select-none" id="gameList" role='button'>
+                                    
+                                </ul>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="d-grid botoes">
+                            <button class="btn btn-primary criarJogo" id="btnCreateGame" type="button">CRIAR NOVO JOGO</button>
+                            <form action="" class="d-grid gap-2">   
+                                <input maxlength="6" class="form-control idInput" id="idgame" placeholder="ID da partida">
+                                <button id="btnEnter" class="btn btn-primary" type="button">ENTRAR EM UMA PARTIDA SECRETA</button>
+                            </form>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <div class="gamePanel" id="gamePanel">
+
+            
+
+            <div class="codigo">
+                <span style="font-weight: 500;" class="user-select-none">ID:</span>
+                <span style="font-weight: 700;" class="" id="gameIdDisplay">------</span>
+                <button id="btnMudarVisib" type="button" class="btn btn-danger btnPrivado" data-bs-toggle="button"></button>
+            </div>
+
+            <div class="gameCanvas" id="gameCanvas">
+                <div class="container">
+                    <div  class="row">
+                        
+                        <div  id="firstSquare" class="col border gamePosition">
+                            
+                        </div>
+                        <div id="topMiddleSquare" class="col border gamePosition">
+                            
+                        </div>
+                        <div id="topLastSquare" class="col border gamePosition">
+                            
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="middleMiddleSquare" class="col border gamePosition">
+                            
+                        </div>
+                        <div class="col border gamePosition">
+                            
+                        </div>
+                        <div class="col border gamePosition">
+                            
+                        </div>
+                    </div>
+
+                    <div  class="row">
+                        <div id="bottomLastSquare" class="col border gamePosition">
+                            
+                        </div>
+                        <div class="col border gamePosition">
+                            
+                        </div>
+                        <div class="col border gamePosition">
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="mt-5 user-select-none" id="statusDisplay">... turno</p>
+
+            <div class="d-grid mt-5 col-5 mx-auto">
+                <button type="button" id="btnSair" class="btn btn-warning">SAIR</button>
+            </div>
+
+
+        </div>
+
+        <script type="module" src="client.js" defer></script>
+        <script  type="module" src="script.js"></script>
+    
+        
+    </body>
+
+</html>
