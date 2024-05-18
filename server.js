@@ -469,6 +469,7 @@ function disconnectPlayer(clientId){
       }
       
       delete games[key]
+      updatePublicGames(games[key], clientId)
       return 0
 
     }
