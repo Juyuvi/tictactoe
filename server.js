@@ -80,6 +80,8 @@ function messageHandler(msg){
 
       games[gameId].players.push({"clientId": data.clientId, "isTurn": 0})
 
+      console.log("GameID " + gameId + " criado pelo cliente " + data.clientId)
+
       payload = {
         "tag": "createGame",
         "gameId": gameId
@@ -235,15 +237,17 @@ function idGenerator(){
 
 function updatePublicGames(gameId, clientId){
 
-  
+
   if (games[gameId].players[0]["clientId"] == clientId){
     if (publicGames.includes(gameId)){
 
       publicGames.splice(publicGames.indexOf(gameId), 1)
+      console.log("GameID: " + gameId + " removido dos jogos publicos pelo cliente " + clientId)
       
     }
     else{
       publicGames.push(gameId)
+      console.log("GameID: " + gameId + " adicionado aos jogos publicos pelo cliente " + clientId)
     }
 
     let payload = {
@@ -443,7 +447,11 @@ function disconnectPlayer(clientId){
     // If the clientId of the leaving player is found in a existing game, his opponent is disconnected and the game is deleted.
     if ((games[key]["players"][0]["clientId"] == clientId)){
 
+      updatePublicGames(games[key]["gameId"], clientId)
+
       if (games[key]["players"].length > 1){ //If there is a second player, it must be disconnected.
+      
+
         let opponentId = games[key]["players"][1]["clientId"]
         let payload = {
           "tag": "oponentLeft"
@@ -451,13 +459,14 @@ function disconnectPlayer(clientId){
       clientIdList[opponentId].connection.send(JSON.stringify(payload))
       }
       
+      console.log("GameID: " + games[key]["gameId"] + " deletado.")
       delete games[key]
       return 0
     }
 
     else if( (games[key]["players"].length > 1) && (games[key]["players"][1]["clientId"] == clientId)){
 
-      if (games[key]["players"].length > 1){ //If there is a second player, it must be disconnected.
+      if (games[key]["players"].length > 1){ //If there is a second player, they must be disconnected.
         let opponentId = games[key]["players"][0]["clientId"]
 
         let payload = {
@@ -468,8 +477,8 @@ function disconnectPlayer(clientId){
 
       }
       
+      console.log("GameID: " + games[key]["gameId"] + " deletado.")
       delete games[key]
-      updatePublicGames(games[key], clientId)
       return 0
 
     }
