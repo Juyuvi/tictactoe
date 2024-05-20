@@ -447,8 +447,9 @@ function disconnectPlayer(clientId){
     // If the clientId of the leaving player is found in a existing game, his opponent is disconnected and the game is deleted.
     if ((games[key]["players"][0]["clientId"] == clientId)){
 
-      updatePublicGames(games[key]["gameId"], clientId)
-
+      if (publicGames.includes(games[key]["gameId"])){
+        updatePublicGames(games[key]["gameId"], clientId)
+      }
       if (games[key]["players"].length > 1){ //If there is a second player, it must be disconnected.
       
 
