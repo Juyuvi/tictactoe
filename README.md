@@ -4,14 +4,14 @@ Um jogo da velha multiplayer online desenvolvido com HTML, CSS, JavaScript e Nod
 
 ## Funcionalidades
 
-- **Jogo em Tempo Real**: Comunicação eficiente via WebSockets entre os jogadores (fluxo cliente > servidor > cliente).
+- **Jogo em Tempo Real**: Comunicação eficiente via WebSockets entre os jogadores (client-server flow).
 - **Lobby de Salas**: Interface de lobby onde os jogadores podem criar novas salas ou entrar em partidas existentes.
 - **Logs de Erros e Manutenção**: Sistema de registro no servidor para monitorar e melhorar a estabilidade do jogo.
 - **Interface Visual Moderna**: Desenvolvida com Bootstrap, garante uma experiência visual consistente.
 
 ## Demonstração
 
-O jogo está hospedado e disponível para uso em [129.148.43.244](http://129.148.43.244/).
+O jogo está hospedado e disponível para uso em [em um endereço temporário](http://129.148.43.244/).
 
 ## Como Executar Localmente
 
