@@ -20,7 +20,7 @@ const alignmentArray = [
 let lineDivId = ""
 
 
-var socket = new WebSocket("ws://129.148.43.244:8080")
+var socket = new WebSocket("ws://localhost:8080")
 socket.onmessage = onMessage
 
 // Getting DOM elements
