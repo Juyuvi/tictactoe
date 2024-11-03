@@ -36,7 +36,7 @@ body{
 .panel-control{
     margin-top: 50px;
     display: flex;
-
+    
 
 }
 
@@ -313,3 +313,130 @@ ul.jogo:last-child{
 }
 
 
+
+
+/* Phone screens */
+/* I definitely shouldn't be using exact values here, but it will work for the moment.
+    Soon to be changed */
+
+@media(max-width: 500px){
+    
+    #panel{
+        margin: 20px 0;
+        padding: 0;
+    }
+
+    .games{
+        margin: auto;
+        margin-bottom: 15px;
+        height: 300px;
+    }
+
+
+    #btnCreateGame{
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #enterGameID{
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    #btnEnter{
+        width: 300px;
+        margin: auto;
+    }
+
+
+    #gamePanel{
+        margin: 20px 0;
+        padding: 0;
+    }
+
+
+
+    .gameCanvas {
+        height: 330px;
+        width: 330px;
+    }
+
+    .gamePosition{
+        height: 110px;
+    }
+    
+
+
+    /* in-game symbols */
+
+    .X::before{
+        font-size: 110px;
+        line-height: 110px;
+    }
+    
+    
+    .bolinha::before{
+        font-size: 110px;
+        line-height: 110px;
+    }
+
+    .gameSquaresO .gamePosition:not(.X, .bolinha):hover::before{
+        font-size: 110px;
+        line-height: 110px;
+    }
+    
+    .gameSquaresX .gamePosition:not(.X, .bolinha):hover::before{
+        font-size: 110px;
+        line-height: 110px;
+    }
+
+    #hLine{
+        width: 300px;
+        margin-left: 15px;
+        height: 10px;
+        margin-top: -60px;
+    }
+    
+    #vLine{
+        height: 300px;
+        margin-top: -95px;
+        margin-left: 49px;
+    }
+    
+    #upDownLine{
+        height: 420px;
+        margin-top: -110px;
+        margin-left: 49px;
+    }
+    
+    #downUpLine{
+        height: 420px;
+        margin-top: -110px;
+        margin-left: 49px;
+    }
+    
+    @keyframes diagonalLine {
+        from {height: 0;}
+        to {height: 420px;}
+      }
+    
+    @keyframes hLine {
+        from {width: 0;}
+        to {width: 300px;}
+    }
+    
+    @keyframes vLine {
+        from {height: 0;}
+        to {height: 300px;}
+    }
+
+
+
+
+
+
+
+}
